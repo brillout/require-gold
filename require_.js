@@ -1,8 +1,16 @@
 module.exports = require_;
 
-function require_(moduleName, {skipCache, useSourceMap=true, returnDefault=true}={}) {
-  const modulePath = const require.resolve(moduleName);
-  if( useSourceMap ) {
+function require_(
+    moduleName,
+    {
+      skipCache=false,
+      useSourceMap=true,
+      returnDefault=true,
+    }={}
+  ){
+  const modulePath = require.resolve(moduleName);
+
+  if( useSourceMap ){
     installSourceMap();
   }
 
@@ -12,23 +20,21 @@ function require_(moduleName, {skipCache, useSourceMap=true, returnDefault=true}
 
   const moduleExports = require(modulePath);
 
-  if( !returnDefault ) {
-    return moduleExports;
-  } else {
+  if( returnDefault ) {
     if( moduleExports.__esModule === true ) {
       return moduleExports.default;
     } else {
       return moduleExports;
     }
   }
+
+  return moduleExports;
 }
 
 let sourceMapIsInstalled;
 function installSourceMap() {
+  if( !sourceMapIsInstalled ) return;
+  sourceMapIsInstalled = true;
   const sourceMap = require('source-map-support');
   sourceMap.install();
-  if( ! sourceMapIsInstalled ) {
-    sourceMap.install();
-    sourceMapIsInstalled = true;
-  }
 }
