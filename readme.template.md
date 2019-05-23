@@ -15,5 +15,5 @@ const defaultExport = require_('./myModule', {skipCache: true, returnDefault: tr
 See the source code for a full documentation:
 
 ~~~js
-!INCLUDE ./require_.js
+!INLINE ./require_.js
 ~~~
