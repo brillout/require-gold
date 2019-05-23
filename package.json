@@ -1,15 +1,16 @@
 {
   "name": "@brillout/require-gold",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./require_.js",
   "scripts": {
     "docs": "mdocs ./docs/"
   },
   "dependencies": {
-    "@brillout/mdocs": "^0.1.25",
     "source-map-support": "^0.5.12"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@brillout/mdocs": "^0.1.25"
+  },
   "repository": "github:brillout/require-gold",
   "publishConfig": {
     "access": "public"
