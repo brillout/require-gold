@@ -3,17 +3,13 @@
   "version": "0.1.0",
   "main": "./require_.js",
   "scripts": {
-    "clean": "git clean -Xdf",
-    "docs": "mdocs ./docs/",
-    "release-dry-run": "lerna publish --force-publish=* --skip-git --skip-npm",
-    "release-retry": "lerna publish --force-publish=* --skip-git",
-    "release": "lerna publish --force-publish=*",
-    "install-all": "npm install yarn --no-save && yarn",
-    "i": "yarn"
+    "docs": "mdocs ./docs/"
   },
   "dependencies": {
+    "@brillout/mdocs": "^0.1.25",
     "source-map-support": "^0.5.12"
   },
+  "devDependencies": {},
   "repository": "github:brillout/require-gold",
   "publishConfig": {
     "access": "public"
