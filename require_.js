@@ -33,7 +33,7 @@ function require_(
 
 let sourceMapIsInstalled;
 function installSourceMap() {
-  if( !sourceMapIsInstalled ) return;
+  if( sourceMapIsInstalled ) return;
   sourceMapIsInstalled = true;
   const sourceMap = require('source-map-support');
   sourceMap.install();
