@@ -8,17 +8,17 @@ function require_(
       returnDefault=true,
     }={}
   ){
-  const modulePath = require.resolve(moduleName);
+  const modulePath = eval('require').resolve(moduleName);
 
   if( useSourceMap ){
     installSourceMap();
   }
 
   if( skipCache ){
-    delete require.cache[modulePath];
+    delete eval('require').cache[modulePath];
   }
 
-  const moduleExports = require(modulePath);
+  const moduleExports = eval('require')(modulePath);
 
   if( returnDefault ) {
     if( moduleExports.__esModule === true ) {
